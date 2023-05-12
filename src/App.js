@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom';
 import Home from './scenes/home/Home'; // Folder does not exist yet
 import ItemDetails from './scenes/itemDetails/ItemDetails';
+import Confirmation from './scenes/checkout/Confirmation';
+import Navbar from './scenes/global/Navbar';
 
 const scrollToTop = () => {
   const { pathname } = useLocation();
@@ -22,12 +24,14 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
+        <Navbar />
         <ScrollToTop /> 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="item/:itemId" element={<ItemDetails />} />
-            <Route path="checkout" element={<Checkout />} />        
-          </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="item/:itemId" element={<ItemDetails />} />
+          <Route path="checkout" element={<Checkout />} />  
+          <Route path="checkout/success" element={<Confirmation />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
