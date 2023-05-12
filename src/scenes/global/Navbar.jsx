@@ -14,7 +14,7 @@ import { setIsCartOpen } from "../../state";
 const Navbar = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const cart = useSelector((state.cart.cart)) // duplicate to grab the index.js/state slice and state above it..
+    const cart = useSelector((state) => state.cart.cart) // duplicate to grab the index.js/state slice and state above it..
 
     // material ui lets you pass in CSS properties directly into the <Box> component specifically.
     return (

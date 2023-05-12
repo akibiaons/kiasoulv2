@@ -1,4 +1,4 @@
-import { useAffect } from 'react';
+import { useEffect } from 'react';
 import {
   BrowserRouter,
   Routes,
@@ -6,14 +6,16 @@ import {
   useLocation,
 } from 'react-router-dom';
 import Home from './scenes/home/Home'; // Folder does not exist yet
-import ItemDetails from './scenes/itemDetails/ItemDetails';
-import Confirmation from './scenes/checkout/Confirmation';
 import Navbar from './scenes/global/Navbar';
+import ItemDetails from './scenes/itemDetails/ItemDetails';
+import CartMenu from './scenes/global/CartMenu';
+import Checkout from "./scenes/checkout/Checkout";
+import Confirmation from './scenes/checkout/Confirmation';
 
-const scrollToTop = () => {
+const ScrollToTop = () => {
   const { pathname } = useLocation();
 
-  useAffect(()=>{
+  useEffect(()=>{
     window.scrollTo(0, 0);
   }, [[pathname]])
 
@@ -32,6 +34,7 @@ function App() {
           <Route path="checkout" element={<Checkout />} />  
           <Route path="checkout/success" element={<Confirmation />} />
         </Routes>
+        <CartMenu />
       </BrowserRouter>
     </div>
   );
