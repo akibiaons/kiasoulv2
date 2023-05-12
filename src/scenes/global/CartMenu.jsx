@@ -102,7 +102,9 @@ const CartMenu = () => {
                                                 </IconButton>
                                                 <Typography>{item.count}</Typography>
                                                 <IconButton
-                                                    onClick={() => dispatch(increaseCount({ id: item.id }))}
+                                                    onClick={() => 
+                                                        dispatch(increaseCount({ id: item.id }))
+                                                    }
                                                 >
                                                     <AddIcon />
                                                 </IconButton>
