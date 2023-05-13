@@ -1,5 +1,6 @@
 import MainCarousel from "./MainCarousel"
 import ShoppingList from "./ShoppingList";
+import subscribe from "./Subscribe";
 
 const Home = () => {
     return (

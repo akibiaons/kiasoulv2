@@ -44,7 +44,7 @@ const Item = ({item, width}) => {
                     style={{ cursor: 'pointer' }}
                 />   
                 <Box
-                    display={isHovered ? "blocked" : 'none'}
+                    display={isHovered ? "block" : 'none'}
                     position="absolute"
                     botton="10%"
                     left="0"
