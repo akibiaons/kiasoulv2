@@ -10,14 +10,14 @@ const importAll = (r) =>
     r.keys.reduce((acc, item) => {
         acc[item.replace("./", "")] = r(item);
         return acc;
-    }, []); // He said arr but {} is object brackets, may ned fixing later.
+    }, {}); // He said arr but {} is object brackets, may ned fixing later.
 
 export const heroTextureImports = importAll(
     require.context("../../assets", false, /\.(png|jpe?g|svg)$/)
 )
 
 const MainCarousel = () => {
-    const isNonMobile = useMediaQuery ("(min-width: 600px)") // Might be missing a paretnthesis.
+    const isNonMobile = useMediaQuery ("(min-width: 600px") // Might be missing a parenthesis
 };
 
 export default MainCarousel;
