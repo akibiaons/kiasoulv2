@@ -11,6 +11,7 @@ import ItemDetails from './scenes/itemDetails/ItemDetails';
 import CartMenu from './scenes/global/CartMenu';
 import Checkout from "./scenes/checkout/Checkout";
 import Confirmation from './scenes/checkout/Confirmation';
+import Footer from "./scenes/global/Footer";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
