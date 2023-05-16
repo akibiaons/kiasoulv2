@@ -1,24 +1,19 @@
-import { useEffect } from 'react';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useLocation,
-} from 'react-router-dom';
-import Home from './scenes/home/Home'; // Folder does not exist yet
-import Navbar from './scenes/global/Navbar';
-import ItemDetails from './scenes/itemDetails/ItemDetails';
-import CartMenu from './scenes/global/CartMenu';
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import Home from "./scenes/home/Home"; // Folder does not exist yet
+import Navbar from "./scenes/global/Navbar";
+import ItemDetails from "./scenes/itemDetails/ItemDetails";
+import CartMenu from "./scenes/global/CartMenu";
 import Checkout from "./scenes/checkout/Checkout";
-import Confirmation from './scenes/checkout/Confirmation';
+import Confirmation from "./scenes/checkout/Confirmation";
 import Footer from "./scenes/global/Footer";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
-  useEffect(()=>{
+  useEffect(() => {
     window.scrollTo(0, 0);
-  }, [[pathname]])
+  }, [[pathname]]);
 
   return null;
 }; // This function makes it so that users start at the top of a new page when clicking a link.
@@ -28,11 +23,11 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <Navbar />
-        <ScrollToTop /> 
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="item/:itemId" element={<ItemDetails />} />
-          <Route path="checkout" element={<Checkout />} />  
+          <Route path="checkout" element={<Checkout />} />
           <Route path="checkout/success" element={<Confirmation />} />
         </Routes>
         <CartMenu />
