@@ -114,7 +114,17 @@ const Checkout = () => {
     actions.setTouched({});
   };
 
-  async function makePayment(values) {}
+  async function makePayment(values) {
+    const stripe = await stripePromise;
+    const requestBody = {
+      userName: [values.firstName, values.lastName].join(" "),
+      email: values.email,
+      products: cart.map(({ id, count }) => ({
+        id,
+        count,
+      })),
+    };
+  }
 
   return (
     <Box width="80%" m="100px auto">
