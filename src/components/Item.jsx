@@ -38,20 +38,19 @@ const Item = ({ item, width }) => {
           alt={item.name}
           width="300px"
           height="400px"
-          src={`http://localhost:3000${url}`}
+          src={`http://localhost:2000${url}`}
           onClick={() => navigate(`/item/${item.id}`)}
           style={{ cursor: "pointer" }}
         />
         <Box
           display={isHovered ? "block" : "none"}
           position="absolute"
-          botton="10%"
+          bottom="10%"
           left="0"
           width="100%"
           padding="0 5%"
         >
           <Box display="flex" justifyContent="space-between">
-            {/* AMOUNT */}
             <Box
               display="flex"
               alignItems="center"
@@ -66,8 +65,6 @@ const Item = ({ item, width }) => {
                 <AddIcon />
               </IconButton>
             </Box>
-
-            {/* BUTTON */}
             <Button
               onClick={() => {
                 dispatch(addToCart({ item: { ...item, count } }));
@@ -80,14 +77,14 @@ const Item = ({ item, width }) => {
         </Box>
       </Box>
 
-      <Box mt="30px">
+      <Box mt="3px">
         <Typography variant="subtitle2" color={neutral.dark}>
           {category
-            .replace(/(A-Z)/g, "$1")
+            .replace(/([A-Z])/g, " $1")
             .replace(/^./, (str) => str.toUpperCase())}
         </Typography>
         <Typography>{name}</Typography>
-        <Typography font-weight="bold">${price}</Typography>
+        <Typography fontWeight="bold">${price}</Typography>
       </Box>
     </Box>
   );
