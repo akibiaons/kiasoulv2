@@ -6,6 +6,11 @@ import * as yup from "yup";
 import Shipping from "./Shipping";
 import Payment from "./Payment";
 import { shades } from "../../theme";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(
+  "pk_test_51N99DkCmDfcIWa22Umowz7jAHMb8lOtBw3KeKDOWjwAQU0MZzUg0pTeb9I4nmTDimBbn2R62yJgNU0Q1PfLQKqpe00AT2KDY5r"
+);
 
 const initialValues = {
   billingAddress: {
