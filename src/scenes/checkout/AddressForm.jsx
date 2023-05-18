@@ -9,7 +9,7 @@ const AddressForm = ({
   handleBlur,
   handleChange,
 }) => {
-  const isNotMobile = useMediaQuery("(min-width:600px)");
+  const isNonMobile = useMediaQuery("(min-width:600px)");
 
   //These functions allow for better code readability
   const formattedName = (field) => `${type}.${field}`;
