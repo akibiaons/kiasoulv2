@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Box, Button, Stepper, step, StepLabel } from "@mui/material";
+import { Box, Button, Stepper, Step, StepLabel } from "@mui/material";
 import { Formik } from "formik";
 import { useState } from "react";
 import * as yup from "yup";
@@ -94,15 +94,16 @@ const Checkout = () => {
     setActiveStep(activeStep + 1);
 
     // Will setup a way to copy billing addess into the shipping address.
-    if (isFirstStep && values.shippingAddress.isSameAddress) {
+    if (isFirstStep && value.shippingAddress.isSameAddress) {
+      // I Changed values to value to fix an error on the code above.
       actions.setFieldValue("shippingAddress", {
-        ...values.billingAddress,
+        ...value.billingAddress,
         isSameAddress: true,
       });
     }
 
     if (isSecondStep) {
-      makePayment(values);
+      makePayment(value);
     }
 
     actions.setTouched({});
@@ -122,8 +123,8 @@ const Checkout = () => {
       </Stepper>
       <Box>
         <Formik
-          onSubmit={handleFormDubmit}
-          initialValues={initalValues}
+          onSubmit={handleFormSubmit}
+          initialValues={initialValues}
           validationSchema={checkoutSchema[activeStep]}
         >
           {" "}
