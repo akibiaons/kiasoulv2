@@ -75,7 +75,9 @@ function Navbar() {
               <ShoppingBagOutlined />
             </IconButton>
           </Badge>
-          <IconButton sx={{ color: "black" }}>
+          <IconButton 
+          sx={{ color: "black" }}        
+          >
             <MenuOutlined />
           </IconButton>
         </Box>
