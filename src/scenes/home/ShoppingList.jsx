@@ -12,22 +12,21 @@ const ShoppingList = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState("all");
   const items = useSelector((state) => state.cart.items);
-  const isNonMobile = useMediaQuery("(min-width:600px");
-  console.log("items", items);
+  const breakPoint = useMediaQuery("(min-width:600px)");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   async function getItems() {
-    // This function will grab out backend info from strapi
     const items = await fetch(
-      "http://localhost:1337/api/items?populate=image",
+      "http://localhost:3000/api/items?populate=image",
       { method: "GET" }
     );
     const itemsJson = await items.json();
     dispatch(setItems(itemsJson.data));
   }
+
   useEffect(() => {
     getItems();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -44,16 +43,16 @@ const ShoppingList = () => {
 
   return (
     <Box width="80%" margin="80px auto">
-      <Typography variant="h3" text-align="center">
+      <Typography variant="h3" textAlign="center">
         Our Featured <b>Products</b>
       </Typography>
       <Tabs
-        text-color="primary"
+        textColor="primary"
         indicatorColor="primary"
         value={value}
         onChange={handleChange}
         centered
-        TabIndicatorProps={{ sx: { display: isNonMobile ? "block" : "none" } }}
+        TabIndicatorProps={{ sx: { display: breakPoint ? "block" : "none" } }}
         sx={{
           m: "25px",
           "& .MuiTabs-flexContainer": {
@@ -72,7 +71,7 @@ const ShoppingList = () => {
         gridTemplateColumns="repeat(auto-fill, 300px)"
         justifyContent="space-around"
         rowGap="20px"
-        columnGap="1.33"
+        columnGap="1.33%"
       >
         {value === "all" &&
           items.map((item) => (
